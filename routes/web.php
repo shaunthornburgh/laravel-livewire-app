@@ -1,5 +1,7 @@
 <?php
 
+use App\Livewire\CreateNote;
+use App\Livewire\ShowNotes;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +20,10 @@ Route::view('/', 'welcome');
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
+
+Route::get('/notes', ShowNotes::class)
+    ->middleware(['auth', 'verified'])
+    ->name('notes');
 
 Route::view('profile', 'profile')
     ->middleware(['auth'])
